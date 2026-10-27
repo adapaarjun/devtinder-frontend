@@ -1,2 +1,37 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+@plugin "daisyui/theme" {
+  name: "devtinder";
+  default: true;
+  prefersdark: true;
+  color-scheme: dark;
+
+  /* Background colors */
+  --color-base-100: #0f172a;
+  --color-base-200: #1e293b;
+  --color-base-300: #334155;
+  --color-base-content: #f8fafc;
+
+  /* Primary: Tinder-inspired pink */
+  --color-primary: #f43f5e;
+  --color-primary-content: #ffffff;
+
+  /* Secondary: Purple */
+  --color-secondary: #8b5cf6;
+  --color-secondary-content: #ffffff;
+
+  /* Accent: Cyan */
+  --color-accent: #22d3ee;
+  --color-accent-content: #0f172a;
+
+  /* Neutral colors */
+  --color-neutral: #1e293b;
+  --color-neutral-content: #f8fafc;
+
+  /* Status colors */
+  --color-info: #38bdf8;
+  --color-success: #22c55e;
+  --color-warning: #facc15;
+  --color-error: #ef4444;
+}

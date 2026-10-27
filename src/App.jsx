@@ -1,20 +1,23 @@
-import { Route, Routes } from 'react-router-dom'
-import { Body } from './components/Body'
-import { Login } from './components/Login'
-import {Profile} from './components/Profile'
-import './App.css'
+import { Route, Routes } from "react-router-dom";
+import { Body } from "./components/Body";
+import { Login } from "./components/Login";
+import { Profile } from "./components/Profile";
+import { Provider } from "react-redux";
+import Feed from "./components/Feed";
+import appStore from "./utils/appStore";
 
 function App() {
   return (
-    <div className='flex flex-col h-screen'>
-    <Routes>
-      <Route path='/' element={<Body/>}>
-        <Route path='/login' element={<Login/>} />
-        <Route path='/profile' element={<Profile/>} />
-      </Route>
-    </Routes>
-    </div>
-  )
+    <Provider store={appStore}>
+      <Routes>
+        <Route path="/" element={<Body />}>
+         <Route path="/feed" element={<Feed />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/profile" element={<Profile />} />
+        </Route>
+      </Routes>
+    </Provider>
+  );
 }
 
-export default App
+export default App;
