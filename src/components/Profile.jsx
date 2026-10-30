@@ -1,11 +1,21 @@
+import { useSelector } from "react-redux"
+import ProfileView from "./ProfileView";
 
 
 export function Profile() {
-  return (
-    <div>
-      <h1>Profile</h1>
+  const loggedInUser = useSelector((store)=>store.userStore.userState);
+    
+  if(!loggedInUser){
+    return (
+      <p>Profile Loading...</p>
+    )
+  }
+    return (
+    <div className="flex gap-6.25 my-6.25 ">
+      <ProfileView loggedInUser={loggedInUser}/>
     </div>
   )
-}
+
+  }
 
 export default Profile
