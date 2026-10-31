@@ -1,5 +1,5 @@
 import { Outlet, useNavigate } from "react-router-dom";
-import { Navbar } from "./NavBarComponent";
+import { NavBarComponent } from "./NavBarComponent";
 import { Footer } from "./Footer";
 import axios from "axios";
 import BASE_URL from "../utils/constants";
@@ -33,7 +33,7 @@ export const Body = () => {
 
   return (
     <div className="flex min-h-screen flex-col">
-      <Navbar />
+      <NavBarComponent />
 
       <main className="flex flex-1 items-center justify-center">
         <Outlet />
