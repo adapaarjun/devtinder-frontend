@@ -1,25 +1,25 @@
-/* import axios from "axios";
-import BASE_URL from "../utils/constants"; */
+import axios from "axios";
+import BASE_URL from "../utils/constants";
 
-export const UsersFeed = ({ item ,onRequesthandler}) => {
-  const { _id,firstName, lastName, age, photoUrl } = item;
+export const UsersFeed = ({ item, onRequesthandler }) => {
+  const { _id, firstName, lastName, age, photoUrl } = item;
 
-
-  const onHandleSendRequest = async(status,userId)=>{
-    try{
- /*      const res = await axios.post(BASE_URL+'request/send/' + status + "/" + userId, {} ,{withCredentials:true});
-      if(res.status === 304 ||res.status ===  200){ */
-          
-   /*    }else{
-        alert(res.message)
-      } */
-
-        onRequesthandler(item,userId,status)
-      
-    }catch(err){
-      console.log(err.message)
+  const onHandleSendRequest = async (status, userId) => {
+    try {
+      const res = await axios.post(
+        BASE_URL + "request/send/" + status + "/" + userId,
+        {},
+        { withCredentials: true },
+      );
+      if (res.status === 304 || res.status === 200) {
+        onRequesthandler(item, userId, status);
+      } else {
+        alert(res.message);
+      }
+    } catch (err) {
+      console.log(err.message);
     }
-  }
+  };
 
   return (
     <div className="carousel-item w-full shrink-0">
@@ -43,7 +43,7 @@ export const UsersFeed = ({ item ,onRequesthandler}) => {
               type="button"
               className="btn btn-circle btn-error btn-lg"
               aria-label="Pass"
-               onClick={()=>onHandleSendRequest('ignored',_id)}
+              onClick={() => onHandleSendRequest("ignored", _id)}
             >
               ✕
             </button>
@@ -52,7 +52,7 @@ export const UsersFeed = ({ item ,onRequesthandler}) => {
               type="button"
               className="btn btn-circle btn-success btn-lg"
               aria-label="Like"
-              onClick={()=>onHandleSendRequest('interested',_id)}
+              onClick={() => onHandleSendRequest("interested", _id)}
             >
               ♥
             </button>
@@ -60,6 +60,5 @@ export const UsersFeed = ({ item ,onRequesthandler}) => {
         </div>
       </div>
     </div>
-
   );
 };

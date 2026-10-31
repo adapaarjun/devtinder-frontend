@@ -84,7 +84,7 @@ export const ProfileEditCard = ({ formData, setFormData }) => {
         </label>
 
         <label className="floating-label">
-          <input
+          {/*       <input
             type="text"
             placeholder="Edit Gender"
             className="input w-full"
@@ -93,7 +93,21 @@ export const ProfileEditCard = ({ formData, setFormData }) => {
               setFormData({ ...formData, gender: e.target.value })
             }
           />
-          <span>Gender</span>
+          <span>Gender</span> */}
+          <select
+            className="select"
+            value={formData.gender ?? ""}
+            onChange={(e) =>
+              setFormData({ ...formData, gender: e.target.value })
+            }
+          >
+            <option value="" disabled>
+              Select Gender
+            </option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="others">Others</option>
+          </select>
         </label>
 
         <label className="floating-label">
@@ -133,7 +147,7 @@ export const ProfileEditCard = ({ formData, setFormData }) => {
             onChange={(e) =>
               setFormData({
                 ...formData,
-                skills: e.target.value
+                skills: e.target.value,
               })
             }
           />
