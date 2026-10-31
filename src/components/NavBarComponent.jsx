@@ -7,7 +7,7 @@ import { removeFeed } from "../utils/feedSlice";
 import { removeSlice } from "../utils/requestSlice";
 import { removeConnection } from "../utils/connectionsSlice";
 
-export const Navbar = () => {
+export const NavBarComponent = () => {
   const userData = useSelector((store) => store.userStore.userState);
   const userFeed = useSelector((store)=>store.feedStore.feedData);
   const connectionsStore = useSelector(

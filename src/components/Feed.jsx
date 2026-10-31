@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addFeed, removeUserFromFeed } from "../utils/feedSlice";
 import { UsersFeed } from "./UsersFeed";
-import Alert from "../utils/alert";
+import Alert from "../utils/Alert";
 
 function Feed() {
   const dispatch = useDispatch();
