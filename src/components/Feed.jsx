@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { addFeed, removeUserFromFeed } from "../utils/feedSlice";
 import { UsersFeed } from "./UsersFeed";
 import Alert from "../utils/Alert";
+import getImageUrl from "../utils/getImageUrl";
+
 
 function Feed() {
   const dispatch = useDispatch();
@@ -54,7 +56,7 @@ function Feed() {
         {getFeedStore[activeIndex + 2] && (
           <div className="absolute inset-0 translate-x-3 translate-y-3 overflow-hidden rounded-2xl">
             <img
-              src={getFeedStore[activeIndex + 2].photoUrl}
+              src={getImageUrl(getFeedStore[activeIndex + 2].photoUrl)}
               alt=""
               className="h-full w-full object-cover"
             />
@@ -66,7 +68,7 @@ function Feed() {
         {getFeedStore[activeIndex + 1] && (
           <div className="absolute inset-0 translate-x-1.5 translate-y-1.5 overflow-hidden rounded-2xl">
             <img
-              src={getFeedStore[activeIndex + 1].photoUrl}
+              src={getImageUrl(getFeedStore[activeIndex + 1].photoUrl)}
               alt=""
               className="h-full w-full object-cover"
             />

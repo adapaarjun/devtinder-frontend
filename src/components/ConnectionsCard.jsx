@@ -3,6 +3,12 @@ import bgImage from "../assets/devtinder.png";
 const ConnectionsCard = ({ item }) => {
   const { firstName, lastName, gender, age, about, photoUrl } = item;
 
+    // Convert localhost image URL to a relative URL
+  const imageUrl = photoUrl?.replace(
+    "http://localhost:3000",
+    ""
+  );
+
   return (
     <div
       className="card card-side shrink-0 rounded-2xl border border-base-300 bg-base-100 bg-cover bg-center p-4 shadow-lg transition-all duration-300 hover:shadow-xl sm:p-5 gap-4"
@@ -12,7 +18,7 @@ const ConnectionsCard = ({ item }) => {
         <img
           className="h-20 w-20 rounded-xl object-cover sm:h-24 sm:w-24"
           alt={`${firstName} ${lastName}`}
-          src={photoUrl}
+          src={imageUrl}
         />
       </figure>
 

@@ -6,6 +6,7 @@ import { removeUser } from "../utils/userSlice";
 import { removeFeed } from "../utils/feedSlice";
 import { removeSlice } from "../utils/requestSlice";
 import { removeConnection } from "../utils/connectionsSlice";
+import getImageUrl from "../utils/getImageUrl";
 
 export const NavBarComponent = () => {
   const userData = useSelector((store) => store.userStore.userState);
@@ -51,7 +52,7 @@ export const NavBarComponent = () => {
                 <div className="w-10 rounded-full">
                   <img
                     alt="user photo"
-                    src={userData.photoUrl}
+                    src={getImageUrl(userData.photoUrl)}
                   />
                 </div>
               </div>

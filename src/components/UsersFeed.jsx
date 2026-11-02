@@ -1,5 +1,6 @@
 import axios from "axios";
 import BASE_URL from "../utils/constants";
+import getImageUrl from "../utils/getImageUrl";
 
 export const UsersFeed = ({ item, onRequesthandler }) => {
   const { _id, firstName, lastName, age, photoUrl } = item;
@@ -26,7 +27,7 @@ export const UsersFeed = ({ item, onRequesthandler }) => {
       <div className="card image-full h-156 w-full overflow-hidden rounded-2xl shadow-xl">
         <figure>
           <img
-            src={photoUrl}
+            src={getImageUrl(photoUrl)}
             alt={`${firstName} ${lastName}`}
             className="h-full w-full object-cover"
           />

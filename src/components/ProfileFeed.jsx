@@ -1,3 +1,5 @@
+import getImageUrl from "../utils/getImageUrl";
+
 const ProfileFeed = ({ item }) => {
   const { firstName, lastName, gender, age, about, skills, photoUrl } = item;
 
@@ -5,7 +7,7 @@ const ProfileFeed = ({ item }) => {
     <div className="relative w-96 h-168 overflow-hidden rounded-3xl shadow-xl">
       {/* Background image */}
       <img
-        src={photoUrl}
+        src={getImageUrl(photoUrl)}
         alt={`${firstName} ${lastName}`}
         className="absolute inset-0 w-full h-full object-cover object-center"
       />

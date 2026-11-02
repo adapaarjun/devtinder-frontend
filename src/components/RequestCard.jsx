@@ -3,6 +3,7 @@ import bgImage from "../assets/devtinder.png";
 import BASE_URL from "../utils/constants";
 import { useDispatch } from "react-redux";
 import { removeRequestUser } from "../utils/requestSlice";
+import getImageUrl from "../utils/getImageUrl";
 
 const RequestCard = ({ item }) => {
   const { firstName, lastName, gender, age, about, photoUrl } = item.fromUserId;
@@ -31,7 +32,7 @@ const RequestCard = ({ item }) => {
             <img
               className="w-20 h-20 sm:w-24 sm:h-24 rounded-xl object-cover"
               alt={`${firstName} ${lastName}`}
-              src={photoUrl}
+              src={getImageUrl(photoUrl)}
             />
           </figure>
 
