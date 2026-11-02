@@ -1,13 +1,9 @@
 import bgImage from "../assets/devtinder.png";
+import getImageUrl from "../utils/getImageUrl";
 
 const ConnectionsCard = ({ item }) => {
   const { firstName, lastName, gender, age, about, photoUrl } = item;
 
-    // Convert localhost image URL to a relative URL
-  const imageUrl = photoUrl?.replace(
-    "http://localhost:3000",
-    ""
-  );
 
   return (
     <div
@@ -18,7 +14,7 @@ const ConnectionsCard = ({ item }) => {
         <img
           className="h-20 w-20 rounded-xl object-cover sm:h-24 sm:w-24"
           alt={`${firstName} ${lastName}`}
-          src={imageUrl}
+          src={getImageUrl(photoUrl)}
         />
       </figure>
 
