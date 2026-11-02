@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import bgImage from "../assets/devtinder.png";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { useNavigate } from "react-router-dom";
@@ -62,7 +63,7 @@ export const Login = () => {
     <div className="relative isolate w-96 overflow-hidden rounded-2xl shadow-xl">
       {/* Background image */}
       <img
-        src="../src/assets/devtinder.png"
+        src={bgImage}
         alt=""
         className="absolute inset-0 -z-10 h-full w-full object-cover"
       />

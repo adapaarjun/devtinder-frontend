@@ -1,5 +1,6 @@
 import axios from "axios";
 import BASE_URL from "../utils/constants";
+import bgImage from "../assets/devtinder.png";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
 import { useState } from "react";
@@ -50,7 +51,7 @@ export const ProfileEditCard = ({ formData, setFormData }) => {
   return (
     <div className="relative isolate w-96 overflow-hidden rounded-2xl shadow-xl">
       <img
-        src="../src/assets/devtinder.png"
+        src={bgImage}
         alt=""
         className="absolute inset-0 -z-10 h-full w-full object-cover"
       />
