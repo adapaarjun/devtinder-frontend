@@ -60,7 +60,8 @@ export const Login = () => {
   };
 
   return (
-    <div className="relative isolate w-96 overflow-hidden rounded-2xl shadow-xl">
+    <div className="flex min-h-[80vh] w-full items-center justify-center px-4 py-8">
+          <div className="relative isolate w-full max-w-md overflow-hidden rounded-2xl shadow-xl">
       {/* Background image */}
       <img
         src={bgImage}
@@ -158,5 +159,7 @@ export const Login = () => {
         </div>
       </div>
     </div>
+    </div>
+
   );
 };

@@ -11,7 +11,7 @@ export function Profile() {
     )
   }
     return (
-    <div className="flex gap-6.25 my-6.25 ">
+    <div className="flex gap-6.25 my-6.25 justify-center">
       <ProfileView loggedInUser={loggedInUser}/>
     </div>
   )
