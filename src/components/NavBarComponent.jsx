@@ -10,6 +10,7 @@ import getImageUrl from "../utils/getImageUrl";
 
 export const NavBarComponent = () => {
   const userData = useSelector((store) => store.userStore.userState);
+  console.log(userData);
   const userFeed = useSelector((store)=>store.feedStore.feedData);
   const connectionsStore = useSelector(
     (store) => store.connectionStore.connections,
