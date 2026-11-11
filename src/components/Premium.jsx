@@ -1,7 +1,27 @@
 import axios from "axios";
 import BASE_URL from "../utils/constants";
+import { useEffect, useState } from "react";
 
 const PremiumPlans = () => {
+  const [isUserPremium, setIsUserPremium] = useState(false);
+
+  const verifyPremiumUser = async () => {
+    try {
+      const res = await axios.get(BASE_URL + "/premium/verify", {
+        withCredentials: true,
+      });
+      if (res.data.isPremium) {
+        setIsUserPremium(true);
+      }
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+
+  useEffect(() => {
+    verifyPremiumUser();
+  }, []);
+
   const plans = [
     {
       name: "Bronze",
@@ -60,24 +80,25 @@ const PremiumPlans = () => {
         },
       );
 
-      const {keyId,notes,amount,orderId} = createOrder.data;
+      const { keyId, notes, amount, orderId } = createOrder.data;
 
       console.log(createOrder);
-      
+
       const options = {
         key: keyId,
-        amount, 
+        amount,
         currency: "INR",
         name: "Dev Tinder",
         description: "Application for developers",
         order_id: orderId,
         prefill: {
-          name:notes.firstName + " " + notes.lastName,
-          email:notes.emailId,
+          name: notes.firstName + " " + notes.lastName,
+          email: notes.emailId,
         },
         theme: {
           color: "#F37254",
         },
+        handler: verifyPremiumUser,
       };
       const rzp = new window.Razorpay(options);
       rzp.open();
@@ -86,7 +107,11 @@ const PremiumPlans = () => {
     }
   };
 
-  return (
+  return isUserPremium ? (
+    <div>
+      <h1>You are Already Premium User</h1>
+    </div>
+  ) : (
     <div className="min-h-screen bg-base-200 px-4 py-16">
       <div className="mx-auto max-w-6xl">
         {/* Header */}
